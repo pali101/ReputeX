@@ -24,6 +24,14 @@ const x402PaymentMiddleware = paymentMiddleware(
       },
       network,
     },
+    '/content/reputation-premium': {
+      price: '$0.01',
+      config: {
+        description: 'Premium content with Solana reputation tracking',
+        // This will use x402 payment but you can optionally verify with your contract
+      },
+      network,
+    },
   },
   {
     url: facilitatorUrl,
@@ -44,15 +52,11 @@ export const middleware = (req: NextRequest) => {
 }
 
 // Configure which paths the middleware should run on
+// Only run on specific payment-protected routes to reduce bundle size
 export const config = {
   matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (metadata files)
-     */
-    '/((?!_next/static|_next/image|favicon.ico).*)',
-    '/', // Include the root path explicitly
+    '/content/cheap',
+    '/content/expensive',
+    '/content/reputation-premium',
   ],
 }
