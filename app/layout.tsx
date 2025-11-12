@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Solana x402 Template',
-  description: 'This is a Next.js template with Solana payment integration using the x402 protocol.',
+  title: 'ReputeX',
+  description: 'On-chain reputation & payment demo on Solana.',
 }
 
 export default function RootLayout({

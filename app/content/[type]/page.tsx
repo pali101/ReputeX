@@ -1,6 +1,12 @@
+import type { Metadata } from 'next'
 import { CatsComponent } from '@/components/cats-component'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+
+export const metadata: Metadata = {
+  title: 'Content | ReputeX',
+  description: 'Exclusive content unlocked with payment.',
+}
 
 const CONTENT_CONFIG = {
   cheap: {
